@@ -1,4 +1,3 @@
-/* Existing CSS with improvements */
 * {
     box-sizing: border-box;
 }
@@ -120,6 +119,8 @@ footer {
 }
 
 .hero {
+    margin: 0;
+    padding: 0;
     height: 300px;
     width: 100%;
     overflow: hidden;
@@ -200,6 +201,27 @@ video {
 #gallery img {
     box-shadow: 10px 10px 10px #777;
     width: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.content-section {
+    flex: 2;
+    min-width: 300px;
+}
+
+.sidebar img {
+    float: right;
+    margin: 0 0 1em 1em;
+    width: 50%; 
+    height: auto;
+    border: 2px solid #0d3965; 
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); 
+    object-fit: cover;
 }
 
 @media (max-width: 600px) {
@@ -316,52 +338,34 @@ video {
         width: 80%;
         border: 1px solid #002171;
         box-shadow: 3px 3px 3px #002171;
+        display: grid;
+        grid-template-areas:
+            "header header"
+            "nav hero"
+            "nav main"
+            "nav footer";
+        grid-template-columns: 180px 1fr;
+        grid-template-rows: auto auto 1fr auto;
     }
 
-    nav {
+    header { grid-area: header; }
+    nav { 
+        grid-area: nav;
         text-align: left;
         padding-left: 1em;
     }
+    .hero { 
+        grid-area: hero; 
+        height: 300px;
+    }
+    main { 
+        grid-area: main;
+    }
+    footer { grid-area: footer; }
 
-    @supports (display: grid) {
-        nav ul {
-            flex-direction: column;
-            padding-top: 1em;
-        }
-
-        .hero {
-            grid-area: hero;
-        }
-
-        header {
-            grid-area: header;
-        }
-
-        nav {
-            grid-area: nav;
-        }
-
-        main {
-            grid-area: main;
-        }
-
-        #gallery {
-            grid-area: gallery;
-        }
-
-        footer {
-            grid-area: footer;
-        }
-
-        #wrapper {
-            display: grid;
-            grid-template:
-                "header header"
-                "nav hero"
-                "nav main"
-                "nav footer"
-                / 180px 1fr;
-        }
+    nav ul {
+        flex-direction: column;
+        padding-top: 1em;
     }
 
     #gallery {
@@ -369,23 +373,13 @@ video {
     }
 }
 
-.content-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
+@media (max-width: 1023px) {
+    .hero img {
+        width: 100%;
+        height: auto;
+    }
 
-.content-section {
-    flex: 2;
-    min-width: 300px;
-}
-
-.sidebar img {
-    float: right;
-    margin: 0 0 1em 1em;
-    width: 50%; 
-    height: auto;
-    border: 2px solid #0d3965; 
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); 
-    object-fit: cover;
+    .content-wrapper {
+        flex-direction: column;
+    }
 }

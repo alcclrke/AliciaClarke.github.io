@@ -1,4 +1,4 @@
-/* Existing CSS */
+/* Existing CSS with improvements */
 * {
     box-sizing: border-box;
 }
@@ -21,7 +21,7 @@ header {
     background-repeat: no-repeat;
     background-size: contain;
     color: #fff;
-    padding: 0.5em auto;
+    padding: 0.5em;
     text-align: center;
 }
 
@@ -57,7 +57,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    transition: color 3s ease-out;
+    transition: color 0.3s ease-out;
 }
 
 nav a:link {
@@ -119,25 +119,37 @@ footer {
     font-size: 90%;
 }
 
+.hero {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #homehero {
     background-image: url(images/coast2.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    height: 300px;
+    background-size: cover;
+    background-position: center;
 }
 
 #yurthero {
     background-image: url(images/yurt.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    height: 300px;
+    background-size: cover;
+    background-position: center;
 }
 
 #trailhero {
     background-image: url(images/trail.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    height: 300px;
+    background-size: cover;
+    background-position: center;
 }
 
 #special table {
@@ -162,7 +174,7 @@ td {
     text-align: left;
 }
 
-tr:nth-last-of-type(odd) {
+tr:nth-of-type(odd) {
     background-color: #ffcd6f;
 }
 
@@ -180,14 +192,13 @@ video {
     margin: 1em;
 }
 
-#gallery img {
+#gallery {
     display: grid;
     gap: 2em;
 }
 
 #gallery img {
     box-shadow: 10px 10px 10px #777;
-    text-align: center;
     width: 100%;
 }
 
@@ -195,58 +206,58 @@ video {
     header {
         background-image: none;
     }
-}
 
-#homehero, #yurthero, #trailhero {
-    background-size: auto;
-}
+    #homehero, #yurthero, #trailhero {
+        background-size: auto;
+    }
 
-#special table {
-    display: block;
-}
+    #special table {
+        display: block;
+    }
 
-#special td, #special th {
-    display: block;
-    border-bottom: none;
-}
+    #special td, #special th {
+        display: block;
+        border-bottom: none;
+    }
 
-#special thead {
-    display: none;
-}
+    #special thead {
+        display: none;
+    }
 
-td.package::before {
-    content: "Package:";
-}
+    td.package::before {
+        content: "Package:";
+    }
 
-td.description::before {
-    content: "Description:";
-}
+    td.description::before {
+        content: "Description:";
+    }
 
-td.nights::before {
-    content: "Nights:";
-}
+    td.nights::before {
+        content: "Nights:";
+    }
 
-td.cost::before {
-    content: "Cost:";
-}
+    td.cost::before {
+        content: "Cost:";
+    }
 
-td.package, td.description, td.nights, td.cost {
-    padding-left: 25%;
-    position: relative;
-    text-align: left;
-    font-size: 3vw;
-}
+    td.package, td.description, td.nights, td.cost {
+        padding-left: 25%;
+        position: relative;
+        text-align: left;
+        font-size: 3vw;
+    }
 
-td::before {
-    position: absolute;
-    top: 10px;
-    left: 0.5em;
-    font-weight: bold;
-    color: #1976d2;
-}
+    td::before {
+        position: absolute;
+        top: 10px;
+        left: 0.5em;
+        font-weight: bold;
+        color: #1976d2;
+    }
 
-td:last-of-type {
-    border-bottom: 2px solid #1b69b2;
+    td:last-of-type {
+        border-bottom: 2px solid #1b69b2;
+    }
 }
 
 @media (min-width: 600px) {
@@ -357,6 +368,7 @@ td:last-of-type {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
 .content-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -375,16 +387,5 @@ td:last-of-type {
     height: auto;
     border: 2px solid #0d3965; 
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); 
-    object-fit: cover;
-}
-.hero {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.hero img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
 }
